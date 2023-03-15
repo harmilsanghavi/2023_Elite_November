@@ -1,0 +1,76 @@
+/* #857df9 */
+.body-login{
+    text-transform: capitalize;
+   font-family: Arial;
+   background-color: rgba(0,0,0,0.2);
+    color: black;
+}
+.form1{
+    position: absolute;
+    top: 150px;
+    left: 450px;
+    text-align: center;
+
+}
+.signpage{
+   
+    background-color: #ffffff;
+    color:black;
+    border:1px solid white ;
+    border-radius: 10px;
+ 
+ width: 500px;
+padding-bottom: 20px;
+}
+.textdata{
+   text-align: center;
+    padding: 0 100px;
+    line-height: 3;
+
+}
+.squre{
+    height: 35px;
+    width: 250px;
+    border: 1px solid rgb(139, 137, 137);
+    border-radius: 3px;
+    margin: 10px 0px 0px 10px;
+}
+
+
+.twi{
+    margin: 20px;
+text-align: center;
+}
+.submit-login{
+    background-color: black;
+    color:#ffffff;
+
+
+    height: 40px;
+    width: 250px;
+    border: 1px solid rgb(139, 137, 137);
+    border-radius: 23px;
+    margin: 20px;
+}
+.aforlink{
+    text-decoration: none;
+    color: #857df9;
+}
+
+.login-forgot{
+  
+  
+    border: 1px solid rgb(139, 137, 137);
+    border-radius: 23px;
+    padding: 8px 65px;
+  
+}
+.h1tag{
+    margin: -16 0px;
+}
+.textdata{
+    width: fit-content;
+block-size: fit-content;
+}
+.login-forgot:hover {
+    background-color: rgba(0, 0, 0, 0.062);}
