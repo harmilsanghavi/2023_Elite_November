@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter</title>
+    <link rel="stylesheet" href="/CSS/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <section>
+        <div clas="container">
+            <div class="container_inside">
+                <form action="/registration" method="post" onsubmit="return registration()">
+                    <div class="child_container">
+                        <div class="title">
+                            <i class="fa-brands fa-twitter fa-2x"></i>
+                            <h1>Join Twitter today</h1>
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Name" class="" id="name" name="name" onkeyup="manage(this)">
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Username" class="" id="uname" name="uname" onkeyup="manage(this)">
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Email" class="" id="email" name="email" onkeyup="manage(this)">
+                            <p id="email_error" style="color: red;"></p>
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Password" class="" id="password" name="password" onkeyup="manage(this)">
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Conform Password" class="" id="cpassword" name="cpassword" onkeyup="manage(this)">
+                        </div>
+                        <div>
+                            <input type="submit" id="submit" value="SUBMIT" class="sub_btn" disabled>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+
+    function manage(txt) {
+        var sub_bt = document.getElementById('submit');
+        var input_value = document.getElementsByTagName('input');
+
+        // Loop through each element.
+        for (i = 0; i < input_value.length; i++) {
+
+            // Check the element type.
+            if (input_value[i].value == '') {
+                sub_bt.disabled = true;    // Disable the button.
+                return false;
+            }
+            else {
+                sub_bt.disabled = false;   // Enable the button.
+            }
+        }
+    }
+
+
+//     function registration() {
+//         var name = document.getElementById('username').value;
+//         var email = document.getElementById('email').value;
+//         var password = document.getElementById('password').value;
+//         var comform_password = document.getElementById('cpassword').value;
+//         var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+// console.log(email)
+//         if (email.match(mailformat)) {
+//             document.getElementById('email_error').innerHTML = "";
+//         }
+//         else {
+//             document.getElementById('email_error').innerHTML = "Invalid email address";
+//             return false;
+//         }
+//     }
+
+
+</script>
+
+</html>
+
+
+

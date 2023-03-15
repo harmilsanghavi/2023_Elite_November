@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activation</title>
+    <link rel="stylesheet" href="/CSS/auth.css">
+    
+</head>
+<body>
+    <div>
+        <div>
+            <div>
+                
+                <h1 class="title">Thank You for Registration</h1>
+                <form action="/activate_linik" method="get">
+                    <p class="activate_note">Click on activate button to activate your account</p>
+                    <input type="hidden" name="email" value="<%=email%>">
+                    <input type="submit" value="Activate Account" class="active_link">
+                </form>
+            </div>
+
+            
+        </div>
+    </div>
+</body>
+</html>
