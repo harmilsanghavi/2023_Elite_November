@@ -52,6 +52,7 @@ app.get("/email",async(req, res)=>{
 
 
 
+
 app.get("/login", (req, res) => {
     res.render("login");
 })
@@ -88,7 +89,9 @@ app.post('/login', async (req, res) => {
 
 })
 
-
+app.get("/prof", (req, res) => {
+    res.render("prof");
+})
 
 
 
