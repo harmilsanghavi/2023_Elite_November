@@ -1,0 +1,7 @@
+File from: [public/files/a1617cb3f8e2665bb05867e926ae791e.svg]
+
+File to: [public/compress/a1617cb3f8e2665bb05867e926ae791e.svg]
+
+Compression algorithm: [-]
+
+Description: File does not exist!
