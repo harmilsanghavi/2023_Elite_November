@@ -22,6 +22,9 @@ var con = mysql.createConnection({
 app.get("/signup", function (req, res) {
     res.render("sign_up.ejs");
 });
+app.get("/welcome", function (req, res) {
+    res.render("home.ejs");
+});
 
 app.get("/login", function (req, res) {
     res.render("login.ejs");
