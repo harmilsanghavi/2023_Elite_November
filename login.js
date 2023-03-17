@@ -13,13 +13,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 const util = require('util')
 app.use(cookieParser());
-
+app.use(e.static('public'))
 app.use(express.static(path.join(__dirname, 'public')));
 const con = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "root",
-    database: "login_data",
+    database: "2023_Elite",
 });
 var query = util.promisify(con.query).bind(con);
 con.connect(function (err) {
@@ -36,18 +36,6 @@ app.get("/login", (req, res) => {
 
 
 
-app.get("/email",async(req, res)=>{
-    var email = req.query.email_login;
-    var emailsql=await query(`select email from  login_data.registretion_data where email='${email}'`)
-    console.log(emailsql);
-    if(emailsql.length < 0){
-        console.log("true");
-        res.json({exist:true})
-    }else{
-        console.log("false");
-        res.json({exist:false})
-    }
-})
 
 
 
@@ -57,47 +45,110 @@ app.get("/login", (req, res) => {
     res.render("login");
 })
 
-app.post('/login', async (req, res) => {
-
-    const { email_login, password_login } = req.body;
-    var varifyUser = `select * from registretion_data where activated = 1 and email = '${email_login}'`;
-
-
-
-    var result = await query(varifyUser);
-    console.log(result);
-    if (result.length == 0) {
-        res.json("1")
-        //return res.send(`<h1>user not regitered please register to <a href="/">click here</a></h1>`)
-    }
-    console.log(result[0]);
-    const data = result[0];
-    //comparing password
-    var bpass = result[0].user_password;
-    console.log("bpass", bpass)
-    var match = await bcrypt.compare(password_login, bpass);
-    console.log(match);
-    if (!match) {
-        return res.send(`wrong password!`)
-    }
-
-    //generating jwt token
-    const jwtToken = jwt.sign(result[0], "tulsi");
-    res.cookie("jwtToken", jwtToken);
-
-    res.redirect('/home');
-
-})
 
 app.get("/prof", (req, res) => {
     res.render("prof");
 })
 
 
+app.get("/changepassword", (req, res) => {
+ 
+    res.render("changepassword")})
+
+  
+  app.post("/changepassword", async (req, res) => {
+    const { user_id, password_old, password_new } = req.body;
+    const id= req.body.uid;
+    console.log(id);
+    var sql = `SELECT * FROM 2023_Elite.Elite_User where id = ${id};`
+    const result = await query(sql);;
+    var oldPass = result[0].password;
+    console.log("old p " + oldPass);
+    var hashp = await bcrypt.hash(password_new, 10);
+    var match = await bcrypt.compare(password_old, oldPass);
+    console.log(match);
+    if (match) {
+      var sql1 = `update 2023_Elite.Elite_User set  password="${hashp}" where id= ${id};`
+      var update = await query(sql1);
+      console.log("edited");
+      res.redirect('/prof');
+    } else {
+      res.send("old password not mathed");
+     
+    }
+  })
+  
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.get("/deleteaccount", (req, res) => {
+    res.render("prof");
+})
+
+
+app.get("/logout", (req, res) => {
+    res.render("prof");
+})
 
 app.listen(8000,(err)=>{
     if(err) throw err
